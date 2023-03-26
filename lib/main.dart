@@ -98,7 +98,8 @@ class _LandingPageState extends State<LandingPage> {
                     ],
                   ),
 
-                  Text("Few Clouds",
+                  Text(
+                    '${_weather.weatherDescribe.value} ',
                     style: TextStyle(fontSize: 24,fontWeight: FontWeight.w500),
                   ),
 
@@ -198,12 +199,12 @@ class _LandingPageState extends State<LandingPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomRow(icon: Icons.water_drop_outlined,title: "Humidity",value: "3m/s",),
+                  CustomRow(icon: Icons.water_drop_outlined,title: "Humidity",value: "${_weather.humidity.value.toString()} ",),
                   VerticalDivider(color: Colors.white,),
 
-                  CustomRow(icon: Icons.remove_red_eye_outlined,title: "Visibility",value: "32",),
+                  CustomRow(icon: Icons.remove_red_eye_outlined,title: "Visibility",value: "${_weather.visibility.value.toString()} ",),
                   VerticalDivider(color: Colors.white,),
-                  CustomRow(icon: Icons.monitor_weight_outlined,title: "Pressure",value: "3m/s",),
+                  CustomRow(icon: Icons.monitor_weight_outlined,title: "Pressure",value: "${_weather.pressue.value.toString()} Pa",),
 
                 ],
               ),
@@ -226,12 +227,12 @@ class _LandingPageState extends State<LandingPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomRow(icon: Icons.wind_power_outlined,title: "Wind",value: "3m/s",),
+                  CustomRow(icon: Icons.wind_power_outlined,title: "Wind",value: "${_weather.wind.value.toString()}m/s ",),
                   VerticalDivider(color: Colors.white,),
 
-                  CustomRow(icon: Icons.thermostat_auto_outlined,title: "Min Temp",value: "32",),
+                  CustomRow(icon: Icons.thermostat_auto_outlined,title: "Min Temp",value: "${_weather.minTemp.value.toString()} ",),
                   VerticalDivider(color: Colors.white,),
-                  CustomRow(icon: Icons.wind_power_outlined,title: "Wind",value: "3m/s",),
+                  CustomRow(icon: Icons.wind_power_outlined,title: "Max Temp",value: "${_weather.maxTemp.value.toString()} ih ",),
 
                 ],
               ),

@@ -33,7 +33,7 @@ class WeatherController extends GetxController {
 
   Future<dynamic> getLocationWeather(double latitude, double longitude) async {
     NetworkData networkHelper = NetworkData(
-        '$weatherAPIUrl?lat=$latitude&lon=$longitude&appid=e7be9efb5b9d5200aa8f6d3d16b72b49&unit=metric');
+        '$weatherAPIUrl?lat=$latitude&lon=$longitude&appid=e7be9efb5b9d5200aa8f6d3d16b72b49&units=metric');
 
     var weatherData = await networkHelper.getData();
     print(weatherData);
@@ -41,14 +41,15 @@ class WeatherController extends GetxController {
     weatherDescribe.value = weatherData['weather'][0]['description'];
     icon.value='${"http://openweathermap.org/img/w/" +
     weatherData['weather'][0]['icon']}.png' ;
-    temperature.value=weatherData['weather'][1]['temp']+0.0;
-    minTemp.value=weatherData['weather'][1]['temp_min']+0.0;
-    maxTemp.value=weatherData['weather'][1]['temp_max']+0.0;
-    pressue.value=weatherData['weather'][1]['pressure']+0.0;
-    humidity.value=weatherData['weather'][1]['humidity']+0.0;
-    seaLevel.value=weatherData['weather'][1]['sea_level']+0.0;
+    temperature.value=weatherData['main']['temp']+0.0;
+    minTemp.value=weatherData['main']['temp_min']+0.0;
+    maxTemp.value=weatherData['main']['temp_max']+0.0;
+    pressue.value=weatherData['main']['pressure']+0.0;
+    humidity.value=weatherData['main']['humidity']+0.0;
+
     visibility.value=weatherData['visibility']+0.0;
     wind.value=weatherData['wind']['speed']+0.0;
+    seaLevel.value=weatherData['main']['sea_level']+0.0;
 
 
 
