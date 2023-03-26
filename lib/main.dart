@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/Controllers/pollution_controller.dart';
 import 'package:weather_app/Controllers/weather_controller.dart';
 import 'package:get/get.dart';
 
@@ -33,12 +34,17 @@ class _LandingPageState extends State<LandingPage> {
   @override
 
   final WeatherController  _weather=Get.put(WeatherController());
+  final PollutionController  _pollution=Get.put(PollutionController());
+
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: const Text("How's the Sky"),
           //color:Colors.red;
         ),
+drawer: Drawer(
+
+),
 ///////image
         ///flutter clean
         ///flutter pub get
@@ -71,7 +77,11 @@ class _LandingPageState extends State<LandingPage> {
                         size: 32,
                       ),
                       Text(
-                        "Indore",
+                        'Indore ${_weather.minTemp.value.toInt() ==3?
+                      "Go Green":"you are doing good "}',
+
+
+
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       )
@@ -234,6 +244,50 @@ class _LandingPageState extends State<LandingPage> {
                   VerticalDivider(color: Colors.white,),
                   CustomRow(icon: Icons.wind_power_outlined,title: "Max Temp",value: "${_weather.maxTemp.value.toString()} ih ",),
 
+                ],
+              ),
+
+
+
+
+
+
+            ),
+///////////////////////////////////////////////
+
+            Container(
+              height: 150,
+              color: Colors.black26,
+              padding: EdgeInsets.all(24),
+              child: Column(
+                children: [
+
+                Text(
+                  'api ${_pollution.aqi.value.toString()}'
+                ),
+
+                  Row(
+
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+
+
+
+                      VerticalDivider(color: Colors.white,),
+
+                      CustomRow(icon: Icons.wind_power_outlined,title: "CO",value: "${_pollution.co.value.toString()} ",),
+                      VerticalDivider(color: Colors.white,),
+
+                      CustomRow(icon: Icons.thermostat_auto_outlined,title: "NO",value: "${_pollution.no.value.toString()} ",),
+                      VerticalDivider(color: Colors.white,),
+                      CustomRow(icon: Icons.wind_power_outlined,title: "NO2",value: "${_pollution.no2.value.toString()}  ",),
+
+
+                      VerticalDivider(color: Colors.white,),
+                      CustomRow(icon: Icons.wind_power_outlined,title: "O3",value: "${_pollution.o3.value.toString()}  ",),
+
+                    ],
+                  ),
                 ],
               ),
 
