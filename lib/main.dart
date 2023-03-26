@@ -242,7 +242,7 @@ drawer: Drawer(
 
                   CustomRow(icon: Icons.thermostat_auto_outlined,title: "Min Temp",value: "${_weather.minTemp.value.toString()} ",),
                   VerticalDivider(color: Colors.white,),
-                  CustomRow(icon: Icons.wind_power_outlined,title: "Max Temp",value: "${_weather.maxTemp.value.toString()} ih ",),
+                  CustomRow(icon: Icons.thermostat_auto_outlined,title: "Max Temp",value: "${_weather.maxTemp.value.toString()} ih ",),
 
                 ],
               ),
@@ -264,29 +264,35 @@ drawer: Drawer(
 
                 Text(
                   'api ${_pollution.aqi.value.toString()}'
+                      ,style: TextStyle(fontSize: 16,color: Colors.white),
                 ),
 
-                  Row(
 
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
+                  Container(
+                    height: 80,
 
+                    child: Row(
 
-
-                      VerticalDivider(color: Colors.white,),
-
-                      CustomRow(icon: Icons.wind_power_outlined,title: "CO",value: "${_pollution.co.value.toString()} ",),
-                      VerticalDivider(color: Colors.white,),
-
-                      CustomRow(icon: Icons.thermostat_auto_outlined,title: "NO",value: "${_pollution.no.value.toString()} ",),
-                      VerticalDivider(color: Colors.white,),
-                      CustomRow(icon: Icons.wind_power_outlined,title: "NO2",value: "${_pollution.no2.value.toString()}  ",),
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
 
 
-                      VerticalDivider(color: Colors.white,),
-                      CustomRow(icon: Icons.wind_power_outlined,title: "O3",value: "${_pollution.o3.value.toString()}  ",),
+/////////plugin pub.dev live location
 
-                    ],
+
+                        CustomRow(icon: Icons.wind_power_outlined,title: "CO",value: "${_pollution.co.value.toString()} ",),
+                        VerticalDivider(color: Colors.white,),
+
+                        CustomRow(icon: Icons.wind_power_outlined,title: "NO",value: "${_pollution.no.value.toString()} ",),
+                        VerticalDivider(color: Colors.white,),
+                        CustomRow(icon: Icons.wind_power_outlined,title: "NO2",value: "${_pollution.no2.value.toString()}  ",),
+
+
+                        VerticalDivider(color: Colors.white,),
+                        CustomRow(icon: Icons.wind_power_outlined,title: "O3",value: "${_pollution.o3.value.toString()}  ",),
+
+                      ],
+                    ),
                   ),
                 ],
               ),
